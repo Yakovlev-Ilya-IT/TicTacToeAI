@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 public class GameBoard : MonoBehaviour
 {
@@ -8,19 +9,18 @@ public class GameBoard : MonoBehaviour
 
     public Cell[] Cells => _cells;
 
-    private GameBoardData _data;
-    private int BoardSize => _data.BoardSize;
+    private GameBoardConfig _data;
+    public int BoardSize => _data.BoardSize;
     private float CellSize => _cellPrefab.Size;
     private float Offset => (BoardSize*CellSize - CellSize) * 0.5f;
 
-    public void Initialize(GameBoardData gameBoardData)
+    [Inject]
+    public void Construct(GameBoardConfig gameBoardData)
     {
         _data = gameBoardData;
-
-        Build();
     }
 
-    private void Build()
+    public void Build()
     {
         _cells = new Cell[BoardSize];
         for (int i = 0; i < BoardSize; i++)
@@ -28,6 +28,7 @@ public class GameBoard : MonoBehaviour
             for (int j = 0; j < BoardSize; j++)
             {
                 _cells[i] = Instantiate(_cellPrefab, new Vector3(i * CellSize - Offset, 0, j * CellSize - Offset), Quaternion.identity, transform);
+                _cells[i].Initialize(i, j);
             }
         }
     }
