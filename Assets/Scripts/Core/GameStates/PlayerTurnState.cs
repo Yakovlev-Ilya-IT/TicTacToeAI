@@ -34,9 +34,9 @@ public class PlayerTurnState : IState
                 Debug.Log("ѕобеда игрока");
                 //ѕереход в состо€ние победы
             }
-
-            FinishTurn();
         }
+
+        FinishTurn();
 
         //предупрждение о том что клетка зан€та
     }
