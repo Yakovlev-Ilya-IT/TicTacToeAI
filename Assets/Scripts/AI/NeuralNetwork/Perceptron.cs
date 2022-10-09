@@ -1,3 +1,6 @@
+using System;
+
+[Serializable]
 public class Perceptron : IMultiplayerNeuralNetwork
 {
     private PerceptronConfig _config;
@@ -6,7 +9,8 @@ public class Perceptron : IMultiplayerNeuralNetwork
     public INeuralLayer[] NeuralLayers => _neuralLayers;
     public int FirstLayerNumber => 0;
     public int OutputLayerNumber => _neuralLayers.Length - 1;
-
+    public int NeuralLayersCount => _neuralLayers?.Length ?? 0;
+    public int InputsCount => _config.IinputsCount;
 
     public Perceptron(PerceptronConfig config)
     {

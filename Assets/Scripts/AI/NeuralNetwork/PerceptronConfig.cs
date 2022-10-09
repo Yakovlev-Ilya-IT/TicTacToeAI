@@ -3,7 +3,7 @@ public class PerceptronConfig
     private int _inputsCount;
     private int _outputsCount;
     private int[] _hiddenLayersNeuronsCount;
-    private IActivationFunction _activationFunction;
+    private IActivationFunction _activationFunction = new SigmoidFunction();
 
     public int IinputsCount => _inputsCount;
     public int OutputsCount => _outputsCount;

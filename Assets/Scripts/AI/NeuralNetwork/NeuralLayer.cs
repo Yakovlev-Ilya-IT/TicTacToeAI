@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 
+[Serializable]
 public class NeuralLayer : INeuralLayer
 {
     private List<INeuron> _neurons;

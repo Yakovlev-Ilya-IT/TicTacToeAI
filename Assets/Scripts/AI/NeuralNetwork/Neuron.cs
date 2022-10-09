@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public class Neuron : INeuron
 {
     private float[] _weights;
@@ -26,7 +28,7 @@ public class Neuron : INeuron
 
     private void InitializeOffset()
     {
-        _offset = Random.Range(-0.5f, 0.5f);
+        _offset = UnityEngine.Random.Range(-1f, 1f);
     }
 
 
@@ -34,7 +36,7 @@ public class Neuron : INeuron
     {
         for (int i = 0; i < inputCount; i++)
         {
-            _weights[i] = Random.Range(-1f, 1f);
+            _weights[i] = UnityEngine.Random.Range(-1f, 1f);
         }
     }
 
@@ -52,5 +54,15 @@ public class Neuron : INeuron
         _output = _activationFunction.Compute(sumResult);
 
         return _output;
+    }
+
+    public void SetWeight(float weight, int weightIndex)
+    {
+        _weights[weightIndex] = weight;
+    }
+
+    public void SetOffset(float offset)
+    {
+        _offset = offset;
     }
 }

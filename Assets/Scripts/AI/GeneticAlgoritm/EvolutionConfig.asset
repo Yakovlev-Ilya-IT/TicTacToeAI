@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c157279dec73e1479c26581b38e75e8, type: 3}
+  m_Name: EvolutionConfig
+  m_EditorClassIdentifier: 
+  _generationsNumber: 200
+  _delayTimeBetweenGames: 0
+  _delayTimeBetweenGenerations: 0
+  _populationConfig:
+    _personsNumber: 80
+    _crossingProbability: 0.5
+    _mutationProbability: 0.5
